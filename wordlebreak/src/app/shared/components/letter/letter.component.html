@@ -1,0 +1,11 @@
+<ng-container *ngIf="letter">
+  <p
+    [ngClass]="{
+      'block-lettre': true,
+      isDisabled: disabled
+    }"
+    (click)="onClickLetter($event)"
+  >
+    {{ letter | uppercase }}
+  </p>
+</ng-container>

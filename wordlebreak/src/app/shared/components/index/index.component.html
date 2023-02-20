@@ -1,0 +1,50 @@
+<div *ngIf="indexResponse" class="block-general bg-stone-900">
+  <div class="block-nav">
+    <div class="block-lettre">
+      <p>?</p>
+    </div>
+    <div class="block-lettre">
+      <p>?</p>
+    </div>
+  </div>
+  <h1>Wordle Breacker</h1>
+  <h2>frenchie</h2>
+
+  <div class="mots-restants">
+    <p>Mots restants</p>
+    <p>
+      {{ numbersLeft || indexResponse.countWords }} /
+      {{ indexResponse.countWords }}
+    </p>
+    <p>(100.000%)</p>
+  </div>
+
+  <div class="word-history-container" *ngFor="let word of wordsHistory">
+    <app-word [word]="word" [disabled]="true"></app-word>
+  </div>
+
+  <div class="tableau">
+    <div class="block-lettre refresh">
+      <p class="lettre">🔀</p>
+    </div>
+    <app-word
+      [word]="actualWord"
+      (letterStatusEmit)="onChangeLetterStatus($event)"
+    >
+    </app-word>
+    <div class="block-lettre valide">
+      <p (click)="onClickValidate()" class="lettre">✔️</p>
+    </div>
+  </div>
+
+  <!-- <div
+    class="suggested-word-history-container"
+    *ngFor="let suggestedWord of suggestedWordsHistory"
+  >
+    <app-word [word]="suggestedWord"> </app-word>
+  </div> -->
+
+  <div class="reset" id="reset">
+    <p>Réinitialiser</p>
+  </div>
+</div>

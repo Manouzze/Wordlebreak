@@ -1,0 +1,9 @@
+<div class="letter-container" *ngIf="letterArray">
+  <app-letter
+    *ngFor="let lettreItem of letterArray; let index = index"
+    [letter]="lettreItem"
+    [index]="index"
+    (letterStatusEmit)="onChangeLetterStatus($event)"
+    [disabled]="disabled"
+  ></app-letter>
+</div>

@@ -1,0 +1,11 @@
+@import "../../../../styles.scss";
+
+.block-lettre {
+  @include block-lettres;
+  cursor: pointer;
+  user-select: none;
+  background-color: rgb(68, 64, 60);
+  &.isDisabled {
+    cursor: initial;
+  }
+}
